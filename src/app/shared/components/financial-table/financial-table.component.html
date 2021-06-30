@@ -1,0 +1,81 @@
+<div class="table" *ngIf="data">
+  <h1>Lançamentos</h1>
+  <mat-table
+    class="lessons-table mat-elevation-z8"
+    [dataSource]="data.listaControleLancamento"
+  >
+    <ng-container matColumnDef="dataLancamento">
+      <mat-header-cell *matHeaderCellDef>
+        <span class="weight">Data de lançamento</span>
+      </mat-header-cell>
+      <mat-cell class="dataLancamento-cell" *matCellDef="let item">
+        {{ item.dataEfetivaLancamento }}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="descricao">
+      <mat-header-cell *matHeaderCellDef>
+        <span class="weight">Descrição</span>
+      </mat-header-cell>
+      <mat-cell class="descricao-cell" *matCellDef="let item">
+        {{ item.lancamentoContaCorrenteCliente.nomeTipoOperacao }}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="numero">
+      <mat-header-cell *matHeaderCellDef>
+        <span class="weight">Número</span>
+      </mat-header-cell>
+      <mat-cell class="numero-cell" *matCellDef="let item">
+        {{ item.lancamentoContaCorrenteCliente.numeroRemessaBanco }}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="situacao">
+      <mat-header-cell *matHeaderCellDef>
+        <span class="weight">Situação</span>
+      </mat-header-cell>
+      <mat-cell class="situacao-cell" *matCellDef="let item">
+        {{ item.lancamentoContaCorrenteCliente.nomeSituacaoRemessa }}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="dataConfirmacao">
+      <mat-header-cell *matHeaderCellDef>
+        <span class="weight">Data de confirmação</span>
+      </mat-header-cell>
+      <mat-cell class="data-confirmacao-cell" *matCellDef="let item">
+        {{ item.dataEfetivaLancamento }}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="dadosBancarios">
+      <mat-header-cell *matHeaderCellDef>
+        <span class="weight">Dados Bancários</span>
+      </mat-header-cell>
+      <mat-cell class="dados-bancarios-cell" *matCellDef="let item">
+        {{ item.nomeBanco }}
+        Ag.
+        {{
+          item.lancamentoContaCorrenteCliente.dadosDomicilioBancario
+            .numeroAgencia
+        }}
+        CC
+        {{
+          item.lancamentoContaCorrenteCliente.dadosDomicilioBancario
+            .numeroContaCorrente
+        }}
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+  <div class="final">
+    <span>
+      Valor Final:
+      {{ formatValue(data.totalControleLancamento.valorLancamentos) }}
+    </span>
+  </div>
+</div>

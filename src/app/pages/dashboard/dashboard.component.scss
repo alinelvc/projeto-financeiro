@@ -1,0 +1,18 @@
+:host {
+  .dashboard {
+    margin: 1%;
+    .loading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+
+      ::ng-deep .mat-progress-spinner,
+      .mat-spinner {
+        circle {
+          stroke: #05808d;
+        }
+      }
+    }
+  }
+}

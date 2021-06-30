@@ -1,0 +1,7 @@
+<div class="dashboard">
+  <div *ngIf="loading" class="loading">
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <app-financial-table *ngIf="!loading" [data]="data"></app-financial-table>
+</div>

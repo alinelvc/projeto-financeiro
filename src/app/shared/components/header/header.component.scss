@@ -1,0 +1,25 @@
+.companyName {
+  font-size: 100%;
+}
+
+.mat-toolbar {
+  height: 50px;
+  color: #fff;
+}
+.salmon {
+  background-color: #ff7161;
+}
+
+.mat-sidenav-container {
+  background-color: #fff;
+  min-height: 100vh;
+  .sidenav {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.mat-sidenav-content {
+  font-size: 200%;
+  text-align: center;
+}

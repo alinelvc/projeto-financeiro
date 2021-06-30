@@ -1,0 +1,25 @@
+<mat-toolbar class="salmon">
+  <div>
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+
+  <a mat-button class="companyName" routerLink="/">
+    <span>AlineBank</span>
+  </a>
+</mat-toolbar>
+
+<mat-sidenav-container class="example-container">
+  <mat-sidenav color="primary" #sidenav mode="over" opened="false">
+    <div class="sidenav">
+      <a mat-button routerLink="/">Dashboard</a>
+      <a mat-button routerLink="/charts">Gráficos</a>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-card>
+      <router-outlet></router-outlet>
+    </mat-card>
+  </mat-sidenav-content>
+</mat-sidenav-container>
